@@ -1,33 +1,16 @@
 ﻿using Caliburn.Micro;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Week1Task2
 {
     public class ViewModel : PropertyChangedBase
     {
-        #region props
-        public string Folder { get => _folder; set => Set(ref _folder, value); }
-        private string _folder;
-        public uint Depth { get => _depth; set => Set(ref _depth, value); }
-        private uint _depth;
-        public BindableCollection<Move> Moves { get; } = new BindableCollection<Move>();
-        public BindableCollection<House> Houses { get; } = new BindableCollection<House>();
         private int x;
         private int y;
-        #endregion
-        public void Up() => Moves.Add(Move.up);
-        public void Down() => Moves.Add(Move.down);
-        public void Left() => Moves.Add(Move.left);
-        public void Right() => Moves.Add(Move.right);
-        public void Reset()
-        {
-            Moves.Clear();
-            Houses.Clear();
-        }
+        public BindableCollection<Move> Moves { get; } = new BindableCollection<Move>();
+        public BindableCollection<House> Houses { get; } = new BindableCollection<House>();
 
         public void Calculate()
         {
@@ -41,10 +24,21 @@ namespace Week1Task2
                 else if (move == Move.down) y--;
                 else if (move == Move.left) x--;
                 else if (move == Move.right) x++;
+
                 var house = new House(x, y);
                 if (!tempHouses.Contains(house)) tempHouses.Add(house);
             }
             Houses.AddRange(tempHouses);
+        }
+
+        public void Up() => Moves.Add(Move.up);
+        public void Down() => Moves.Add(Move.down);
+        public void Left() => Moves.Add(Move.left);
+        public void Right() => Moves.Add(Move.right);
+        public void Reset()
+        {
+            Moves.Clear();
+            Houses.Clear();
         }
 
         public struct House

@@ -21,11 +21,11 @@
             </DockPanel>
             
             <StackPanel Margin="20 0">
-                <Button  Content="Up" cal:Message.Attach="Up" HorizontalAlignment="Center"  Height="30"/>
+                <Button  Content="Up" cal:Message.Attach="Up" HorizontalAlignment="Center" Height="30" Padding="5"/>
                 <StackPanel Orientation="Horizontal">
-                    <Button Content="Left" cal:Message.Attach="Left" Height="30"/>
-                    <Button Content="Down" cal:Message.Attach="Down" Height="30"/>
-                    <Button Content="Right" cal:Message.Attach="Right" Height="30"/>
+                    <Button Content="Left" cal:Message.Attach="Left" Height="30" Padding="5"/>
+                    <Button Content="Down" cal:Message.Attach="Down" Height="30" Padding="5"/>
+                    <Button Content="Right" cal:Message.Attach="Right" Height="30" Padding="5"/>
                 </StackPanel>
                 <Button Content="Reset" cal:Message.Attach="Reset" Margin="0 20 0 0"/>
                 <Button Content="Calculate" cal:Message.Attach="Calculate"/>
