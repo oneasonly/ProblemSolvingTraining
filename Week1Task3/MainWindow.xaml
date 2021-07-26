@@ -24,10 +24,10 @@
                 <Button Content="Show Recurs" cal:Message.Attach="ShowByRecursion" Margin="2" Padding="5 0"/>
             </WrapPanel>
             <ScrollViewer VerticalScrollBarVisibility="Auto">
-                <ItemsControl ItemsSource="{Binding Content}">
+                <ItemsControl ItemsSource="{Binding Content, IsAsync=True}">
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
-                            <TextBlock Text="{Binding}"/>
+                            <TextBlock Text="{Binding Mode=OneTime}"/>
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>
                     

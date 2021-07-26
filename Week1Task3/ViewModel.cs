@@ -25,11 +25,12 @@ namespace Week1Task3
                 MessageBox.Show($"This folder doesnt exist: {Folder}");
                 return;
             }
-            Content.Clear();
+            
             var tempAccumulator = new List<string>();
             await SelfRecurs(tempAccumulator, Folder, 0);
 
             tempAccumulator.Sort();
+            Content.Clear();
             Content.AddRange(tempAccumulator);
         }
         private async Task SelfRecurs(List<string> accumulator, string incPath, int currDepth)
@@ -58,7 +59,7 @@ namespace Week1Task3
                 MessageBox.Show($"This folder doesnt exist: {Folder}");
                 return;
             }
-            Content.Clear();
+            
             var tempAccumulator = new List<string>();
 
             var FoldersByDepth = new List<IEnumerable<string>>((int)Depth);
@@ -74,6 +75,7 @@ namespace Week1Task3
             }
 
             tempAccumulator.Sort();
+            Content.Clear();
             Content.AddRange(tempAccumulator);
         }
         private async Task<IList<string>> GetFoldersNextLevel(IEnumerable<string> folders)
